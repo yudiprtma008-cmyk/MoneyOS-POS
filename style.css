@@ -15,3 +15,7 @@ button.btn-main { background: var(--accent); color: white; border: none; padding
 
 /* List Item */
 .item-card { display: flex; justify-content: space-between; padding: 15px; border-bottom: 1px solid #f1f5f9; }
+/* Card Keranjang */
+.cart-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px dashed #cbd5e1; }
+.total-box { font-size: 1.5rem; font-weight: bold; color: var(--accent); text-align: right; margin: 20px 0; }
+.btn-bayar { background: #10b981; color: white; border: none; padding: 20px; border-radius: 12px; width: 100%; font-size: 1.2rem; }
