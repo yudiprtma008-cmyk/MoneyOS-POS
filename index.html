@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoneyOS POS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main id="app"></main>
+    <nav id="navbar">
+        <button onclick="router('dashboard')">📊</button>
+        <button onclick="router('kasir')">🛒</button>
+        <button onclick="router('produk')">📦</button>
+        <button onclick="router('settings')">⚙️</button>
+    </nav>
+    <script src="db.js"></script>
+    <script src="app.js"></script>
+    <script src="receipt.js"></script>
+</body>
+</html>
