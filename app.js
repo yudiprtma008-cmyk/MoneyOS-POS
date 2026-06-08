@@ -32,3 +32,43 @@ function saveProduct() {
         router('produk');
     };
 }
+let cart = [];
+
+// Menambah produk ke keranjang
+function addToCart(id) {
+    const tx = db.transaction('products', 'readonly');
+    const request = tx.objectStore('products').get(id);
+    request.onsuccess = () => {
+        const p = request.result;
+        const exist = cart.find(i => i.id === p.id);
+        if (exist) exist.qty++;
+        else cart.push({ ...p, qty: 1 });
+        renderKasir(); // Update UI Kasir
+    };
+}
+
+// Menghitung Total
+function getTotal() {
+    return cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+}
+
+// Proses Pembayaran
+async function checkout() {
+    if (cart.length === 0) return alert('Keranjang kosong!');
+    
+    const transaction = {
+        id: Date.now(),
+        items: cart,
+        total: getTotal(),
+        date: new Date().toISOString()
+    };
+
+    const tx = db.transaction('transactions', 'readwrite');
+    tx.objectStore('transactions').add(transaction);
+    
+    tx.oncomplete = () => {
+        Receipt.print(transaction);
+        cart = []; // Reset Keranjang
+        router('kasir');
+    };
+}
