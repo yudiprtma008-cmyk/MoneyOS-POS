@@ -1,0 +1,17 @@
+:root { --primary: #0f172a; --accent: #3b82f6; --bg: #f1f5f9; --card: #ffffff; }
+body { font-family: 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--primary); margin: 0; padding-bottom: 70px; }
+
+/* Navbar Bottom - Mobile Style */
+#navbar { position: fixed; bottom: 0; width: 100%; display: flex; background: #fff; padding: 10px; border-top: 1px solid #e2e8f0; z-index: 100; }
+#navbar button { flex: 1; background: none; color: var(--primary); font-weight: bold; border: none; font-size: 12px; }
+
+/* Dashboard Cards */
+.card { background: var(--card); border-radius: 12px; padding: 20px; margin: 15px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 10px; }
+
+/* Form & Input */
+input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #cbd5e1; border-radius: 8px; box-sizing: border-box; }
+button.btn-main { background: var(--accent); color: white; border: none; padding: 15px; border-radius: 8px; font-weight: bold; width: 100%; }
+
+/* List Item */
+.item-card { display: flex; justify-content: space-between; padding: 15px; border-bottom: 1px solid #f1f5f9; }
